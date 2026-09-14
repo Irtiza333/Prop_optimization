@@ -1,0 +1,138 @@
+# Session file started:  2026/01/14 19:16:00
+# Build 24.1 2023-11-06T16:28:52.307031
+
+# To avoid unnecessary file pre-processing and modifications, include
+# COMMAND FILE at the top of your session file.
+# If it is not included, the file is assumed to be older and will be
+# modified for backward compatibility.
+COMMAND FILE:
+  CFX Post Version = 25.1
+END
+
+USER SCALAR VARIABLE:Jval
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = J
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:Kt
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = KTexp
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:Kq
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = KQexp
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:dragval
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = Drag
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:totalres
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = Total Resistance
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:thrust
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = Thr
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:torque
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = Trq
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:CoD
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = CD
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+USER SCALAR VARIABLE:CoP
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Expression = CP
+  Recipe = Expression
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+
+POINT:Point 1
+  Domain List = /DOMAIN GROUP:All Domains
+  Node Number = 1
+  Option = XYZ
+  Point = 0 [m], 0 [m], 0 [m]
+END
+
+
+EXPORT:
+  ANSYS Export Data = Element Heat Flux
+  ANSYS File Format = ANSYS
+  ANSYS Reference Temperature = 0.0 [K]
+  ANSYS Specify Reference Temperature = Off
+  ANSYS Supplemental HTC = 0.0 [W m^-2 K^-1]
+  Additional Variable List =
+  BC Profile Type = Inlet Velocity
+  CSV Type = CSV
+  Case Name = Case 1000_full
+  Export Connectivity = Off
+  Export Coord Frame = Global
+  Export File = export1000.csv
+  Export Geometry = Off
+  Export Location Aliases =
+  Export Node Numbers = Off
+  Export Null Data = On
+  Export Type = Generic
+  Export Units System = Current
+  Export Variable Type = Current
+  External Export Data = None
+  Include File Information = Off
+  Include Header = Off
+  Location = circum Side 1
+  Location List = /POINT:Point 1
+  Null Token = null
+  Overwrite = On
+  Precision = 8
+  Separator = ", "
+  Spatial Variables = X,Y,Z
+  Variable List = CoD, CoP, dragval, Jval, Kq, Kt, thrust, \
+torque, totalres
+  Vector Brackets = ()
+  Vector Display = Scalar
+END
+>export
+
